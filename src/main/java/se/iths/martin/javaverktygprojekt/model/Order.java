@@ -10,7 +10,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String orderNumber;
     private int amount;
@@ -27,7 +27,7 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
