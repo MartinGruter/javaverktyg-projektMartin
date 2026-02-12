@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkter</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Alla produkter</h1>
+
+<a th:href="@{/products/new}">➕ Skapa ny produkt</a>
+
+<br><br>
+
+<table>
+    <thead>
+    <tr>
+        <th>Namn</th>
+        <th>Pris</th>
+        <th>Beskrivning</th>
+        <th>Åtgärder</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${#numbers.formatDecimal(product.price, 0, 0)} + ' kr'"></td>
+
+
+        <td th:text="${product.description}"></td>
+        <td>
+            <a th:href="@{/products/{id}(id=${product.id})}">Visa</a>
+            |
+            <a th:href="@{/products/{id}/edit(id=${product.id})}">Uppdatera</a>
+            |
+            <form th:action="@{/products/{id}(id=${product.id})}"
+                  method="post"
+                  style="display:inline;">
+                <input type="hidden" name="_method" value="DELETE"/>
+                <button type="submit">Ta bort</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
