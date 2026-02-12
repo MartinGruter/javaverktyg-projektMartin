@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkt</title>
+</head>
+<body>
+
+<h1>Information om Produkt</h1>
+
+<p><strong>Namn:</strong> <span th:text="${product.name}"></span></p>
+<p><strong>Pris:</strong> <span th:text="${#numbers.formatDecimal(product.price, 0, 0)} + ' kr'"></span></p>
+<p><strong>Beskrivning:</strong> <span th:text="${product.description}"></span></p>
+
+<br>
+
+<a th:href="@{/products}"> ← Tillbaka till alla produkter</a>
+
+</body>
+</html>
