@@ -47,7 +47,7 @@ public class ReviewController {
         reviewService.updateReview(id, review);
         return "redirect:/reviews";
     }
-    @PutMapping("/{id}")
+    @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
         reviewService.deleteReviewById(id);
         return "redirect:/reviews";
