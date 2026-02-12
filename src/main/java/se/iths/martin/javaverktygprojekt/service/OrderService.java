@@ -30,13 +30,13 @@ public class OrderService {
     }
 
     public Order updateOrder(Long id, Order updatedOrder) {
-        Order exsisting = orderRepository.findById(id)
+        Order existing = orderRepository.findById(id)
                 .orElseThrow(() -> new OrderNotFoundException(id));
 
-        exsisting.setAmount(updatedOrder.getAmount());
-        exsisting.setOrderStatus(updatedOrder.getOrderStatus());
+        existing.setAmount(updatedOrder.getAmount());
+        existing.setOrderStatus(updatedOrder.getOrderStatus());
 
-        return orderRepository.save(exsisting);
+        return orderRepository.save(existing);
     }
 
     public void deleteOrder(Long id) {
