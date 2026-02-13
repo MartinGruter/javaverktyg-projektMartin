@@ -41,7 +41,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("{id}/edit")
+    @GetMapping("/{id}/edit")
     public String showUpdateForm(@PathVariable Long id, Model model) {
         Product product = productService.getProductById(id);
         model.addAttribute("product", product);
