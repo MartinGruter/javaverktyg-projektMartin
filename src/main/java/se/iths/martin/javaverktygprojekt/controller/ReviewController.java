@@ -36,7 +36,7 @@ public class ReviewController {
         reviewService.createReview(review);
         return "redirect:/reviews";
     }
-    @GetMapping("/{id}/{edit}")
+    @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("review", reviewService.getReviewById(id));
         return "reviews/edit";
