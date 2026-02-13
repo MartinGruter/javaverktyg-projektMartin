@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skapar en ny kund</title>
+</head>
+<body>
+<h1>lägg till ny kund</h1>
+
+<form method="post" th:action="@{/customers}">
+    <p>
+        <label>Namn: </label>
+        <input type="text" name="name">
+    </p>
+    <p>
+        <label>År: </label>
+        <input type="number" name="age">
+    </p>
+    <p>
+        <label>Email: </label>
+        <input type="text" name="email">
+    </p>
+    <p>
+        <label>Stad: </label>
+        <input type="text" name="city">
+    </p>
+    <button type="submit">Spara kund</button>
+</form>
+</body>
+</html>
