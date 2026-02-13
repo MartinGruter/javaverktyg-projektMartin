@@ -1,11 +1,13 @@
 package se.iths.martin.javaverktygprojekt.service;
 
+import org.springframework.stereotype.Service;
 import se.iths.martin.javaverktygprojekt.exceptions.ReviewNotFoundException;
 import se.iths.martin.javaverktygprojekt.model.Review;
 import se.iths.martin.javaverktygprojekt.repository.ReviewRepository;
 
 import java.util.List;
 
+@Service
 public class ReviewService {
     private final ReviewRepository reviewRepository;
 
