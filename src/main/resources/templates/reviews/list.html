@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recensioner</title>
+    <link rel="stylesheet" th:href="@{/review.css}">
+</head>
+<body>
+
+<div class="review-page">
+    <div class="review-header">
+        <h1>Recensioner</h1>
+        <a href="/reviews/new" class="review-btn review-primary">Ny recension</a>
+    </div>
+
+    <div class="review-card">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Namn</th>
+                <th>Betyg</th>
+                <th>Titel</th>
+                <th>Skapad</th>
+                <th>Åtgärder</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:if="${#lists.isEmpty(reviews)}">
+                <td colspan="6">Inga recensioner än.</td>
+            </tr>
+
+            <tr th:each="review : ${reviews}">
+                <td th:text="${review.id}"></td>
+                <td th:text="${review.reviewerName}"></td>
+                <td th:text="${review.rating}"></td>
+                <td th:text="${review.title}"></td>
+                <td th:text="${review.createdDate}"></td>
+
+                <td class="actions">
+                    <a th:href="@{/reviews/{id}(id=${review.id})}"
+                       class="review-btn review-primary">Visa</a>
+
+                    <a th:href="@{/reviews/{id}/edit(id=${review.id})}"
+                       class="review-btn review-edit">Ändra</a>
+
+                    <form th:action="@{/reviews/{id}(id=${review.id})}"
+                          method="post"
+                          style="display:inline;">
+                        <input type="hidden" name="_method" value="delete"/>
+                        <button type="submit" class="review-btn review-danger">Radera</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

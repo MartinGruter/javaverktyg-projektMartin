@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recension</title>
+    <link rel="stylesheet" th:href="@{/review.css}">
+</head>
+<body>
+
+<div class="review-page">
+    <div class="review-header">
+        <h1 th:text="${review.title}">Recension</h1>
+        <div>
+            <a href="/reviews" class="review-btn review-primary">Tillbaka</a>
+            <a th:href="@{/reviews/{id}/edit(id=${review.id})}" class="review-btn review-edit">Ändra</a>
+
+            <form th:action="@{/reviews/{id}(id=${review.id})}" method="post" style="display:inline;">
+                <input type="hidden" name="_method" value="delete"/>
+                <button type="submit" class="review-btn review-danger">Radera</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="review-card review-details">
+        <div class="review-row">
+            <span class="review-label">Recension</span>
+            <span th:text="${review.reviewerName}">-</span>
+        </div>
+
+        <div class="review-row">
+            <span class="review-label">Betyg</span>
+            <span th:text="${review.rating}">-</span>
+        </div>
+
+        <div class="review-row">
+            <span class="review-label">Skapad</span>
+            <span th:text="${review.createdDate}">-</span>
+        </div>
+
+        <div class="review-row">
+            <span class="review-label">Kommentar</span>
+            <span th:text="${review.comment}">-</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

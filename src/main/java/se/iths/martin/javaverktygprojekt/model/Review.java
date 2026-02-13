@@ -1,14 +1,12 @@
 package se.iths.martin.javaverktygprojekt.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 
 @Entity
+@Table(name="review")
 public class Review {
 
     @Id

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ändra recension</title>
+    <link rel="stylesheet" th:href="@{/review.css}">
+</head>
+<body>
+
+<div class="review-page">
+    <div class="review-header">
+        <h1>Ändra recension</h1>
+        <a th:href="@{/reviews/{id}(id=${review.id})}" class="review-btn review-primary">Back</a>
+    </div>
+
+    <div class="review-card">
+        <form th:action="@{/reviews/{id}(id=${review.id})}"
+              th:object="${review}"
+              method="post"
+              class="review-form">
+
+            <input type="hidden" name="_method" value="put"/>
+
+            <div class="review-field">
+                <label class="review-label">Namn</label>
+                <input type="text" th:field="*{reviewerName}" required>
+            </div>
+
+            <div class="review-field">
+                <label class="review-label">Betyg (1–5)</label>
+                <input type="number" min="1" max="5" th:field="*{rating}" required>
+            </div>
+
+            <div class="review-field">
+                <label class="review-label">Titel</label>
+                <input type="text" th:field="*{title}" required>
+            </div>
+
+            <div class="review-field">
+                <label class="review-label">Kommentar</label>
+                <textarea th:field="*{comment}" required></textarea>
+            </div>
+
+            <div class="review-field">
+                <label class="review-label">Skapad</label>
+                <input type="date" th:field="*{createdDate}" required>
+            </div>
+
+            <div class="review-actions">
+                <button type="submit" class="review-btn review-primary">Uppdatera</button>
+                <a th:href="@{/reviews/{id}(id=${review.id})}" class="review-btn review-edit">Avbryt</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

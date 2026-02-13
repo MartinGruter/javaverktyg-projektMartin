@@ -4,6 +4,7 @@ package se.iths.martin.javaverktygprojekt.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import se.iths.martin.javaverktygprojekt.exceptions.ReviewNotFoundException;
 import se.iths.martin.javaverktygprojekt.model.Review;
 import se.iths.martin.javaverktygprojekt.service.ReviewService;
 
@@ -52,5 +53,10 @@ public class ReviewController {
         reviewService.deleteReviewById(id);
         return "redirect:/reviews";
     }
+    @ExceptionHandler(ReviewNotFoundException.class)
+    public String handleNotFound() {
+        return "reviews/not-found";
+    }
+
 
 }
