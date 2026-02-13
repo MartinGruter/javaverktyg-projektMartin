@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visa order</title>
+</head>
+<body>
+<h1>Order information</h1>
+
+<p>
+    <b>Ordernummer</b>
+    <span th:text="${order.orderNumber}"></span>
+</p>
+<p>
+    <b>Status</b>
+    <span th:text="${order.status}"></span>
+</p>
+<p>
+    <b>Belopp</b>
+    <span th:text="${order.amount}"></span>
+</p>
+<p>
+    <b>Beställning skapad</b>
+    <span th:text="${#dates.format(order.orderDate, 'yyyy-MM-dd HH:mm')}"></span>
+</p>
+<p>
+    <a th:href="@{/orders}">Tillbaka till alla ordrar</a>
+    <br>
+    <a th:href="@{/orders/{id}/edit(id=${order.id})}">Uppdatera order</a>
+</p>
+
+</body>
+</html>

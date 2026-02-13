@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uppdatera order</title>
+</head>
+<body>
+
+<h1>Uppdatera order</h1>
+
+<form th:action="@{/orders/{id}/edit(id=${order.id})}" th:object="${order}" method="post">
+
+    <p>
+        <label>Belopp</label>
+        <input type="number" th:field="*{amount}">
+    </p>
+    <p>
+        <label>Status</label>
+        <select th:field="*{orderStatus}">
+            <option value="Skapad">Skapad</option>
+            <option value="Bekräftad">Bekräftad</option>
+            <option value="Skickad">Skickad</option>
+            <option value="Levererad">Levererad</option>
+        </select>
+    </p>
+    <button type="submit">Uppdatera order</button>
+
+
+</form>
+</body>
+</html>

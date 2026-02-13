@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skapa ny order</title>
+</head>
+<body>
+<h1>Skapa ny order</h1>
+
+<form th:action="@{/orders}" th:object="${order}" method="post">
+    <p>
+        <label> Order nummer: </label>
+        <input type="text" th:field="*{orderNumber}">
+    </p>
+
+    <p>
+        <label> Belopp: </label>
+        <input type="number" th:field="*{amount}">
+    </p>
+
+    <p>
+        <label> Order status: </label>
+        <input type="text" th:field="*{orderStatus}">
+    </p>
+
+    <P>
+        <label> Order date: </label>
+        <input type="datetime-local" th:field="*{orderDate}">
+    </P>
+
+    <p>
+        <button type="submit">Skapa ny order</button>
+    </p>
+</form>
+</body>
+</html>
