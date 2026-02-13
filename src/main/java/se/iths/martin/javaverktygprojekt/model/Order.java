@@ -12,9 +12,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "order_number")
     private String orderNumber;
+
+    @Column(name = "total_amount")
     private int amount;
+
+    @Column(name = "status")
     private String orderStatus;
+
+    @Column(name = "created_at")
     private LocalDateTime orderDate;
 
     public Order() {

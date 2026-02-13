@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import se.iths.martin.javaverktygprojekt.exceptions.OrderNotFoundException;
 import se.iths.martin.javaverktygprojekt.model.Order;
 import se.iths.martin.javaverktygprojekt.repository.OrderRepository;
+import se.iths.martin.javaverktygprojekt.validator.OrderValidator;
 
 import java.util.List;
 
@@ -11,9 +12,11 @@ import java.util.List;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderValidator orderValidator;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, OrderValidator orderValidator) {
         this.orderRepository = orderRepository;
+        this.orderValidator = orderValidator;
     }
 
     public List<Order> getAllOrders() {
@@ -26,6 +29,7 @@ public class OrderService {
     }
 
     public Order createOrder(Order order) {
+        orderValidator.validate(order);
         return orderRepository.save(order);
     }
 
@@ -33,6 +37,9 @@ public class OrderService {
         Order existing = orderRepository.findById(id)
                 .orElseThrow(() -> new OrderNotFoundException(id));
 
+        orderValidator.validateAmount(updatedOrder.getAmount());
+        orderValidator.validateOrderStatus(updatedOrder.getOrderStatus());
+        
         existing.setAmount(updatedOrder.getAmount());
         existing.setOrderStatus(updatedOrder.getOrderStatus());
 
