@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Här visas alla kunder</title>
+</head>
+<body>
+<h1>Alla kunder</h1>
+
+<ul>
+
+    <li th:each="customer : ${customers}">
+        <span th:text="${customer.name}"></span>
+        <a th:href="@{/customers/{id}(id=${customer.id})}">Visa info om kund</a>
+        <span> - </span>
+        <a th:href="@{/customers/{id}/edit(id=${customer.id})}">Uppdatera kund</a>
+    </li>
+
+
+</ul>
+
+</body>
+</html>

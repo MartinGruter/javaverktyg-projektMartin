@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visa information om kund</title>
+</head>
+<body>
+<h1>Information om kunden</h1>
+<span th:text="${customer.name}"></span>
+<span th:text="${customer.age}"></span>
+<span th:text="${customer.email}"></span>
+<span th:text="${customer.city}"></span>
+<a th:href="@{/customers}">Tillbaka till alla kunder</a>
+</body>
+</html>

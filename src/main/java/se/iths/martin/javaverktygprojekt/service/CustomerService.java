@@ -1,11 +1,13 @@
 package se.iths.martin.javaverktygprojekt.service;
 
+import org.springframework.stereotype.Service;
 import se.iths.martin.javaverktygprojekt.exceptions.CustomerNotFoundException;
 import se.iths.martin.javaverktygprojekt.model.Customer;
 import se.iths.martin.javaverktygprojekt.repository.CustomerRepository;
 
 import java.util.List;
 
+@Service
 public class CustomerService {
     private final CustomerRepository customerRepository;
 
