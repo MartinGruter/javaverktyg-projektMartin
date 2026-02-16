@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Skapa recension</title>
+    <link rel="stylesheet" th:href="@{/review.css}">
+</head>
+<body>
+
+<div class="review-page">
+    <div class="review-header">
+        <h1>Skapa recension</h1>
+        <a href="/reviews" class="review-btn review-primary">Tillbaka</a>
+    </div>
+
+    <div class="review-card">
+        <form th:action="@{/reviews}" th:object="${review}" method="post" class="review-form">
+
+            <div class="review-field">
+                <label class="review-label">Ditt namn:</label>
+                <input type="text" th:field="*{reviewerName}" placeholder="Kevin till exempel" required
+                oninvalid="this.setCustomValidity('Fyll i ditt namn')"
+                       oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="review-field">
+                <label class="review-label">Betyg (1–5)</label>
+                <input type="number" min="1" max="5" th:field="*{rating}" required
+                oninvalid="this.setCustomValidity('Ange betyg 1-5')"
+                oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="review-field">
+                <label class="review-label">Titel</label>
+                <input type="text" th:field="*{title}" placeholder="Kort titel" required
+                oninvalid="this.setCustomValidity('Fyll i titel')"
+                oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="review-field">
+                <label class="review-label">Kommentar</label>
+                <textarea th:field="*{comment}" placeholder="Skriv din kommentar..." required
+                oninvalid="this.setCustomValidity('Fyll i din kommentar')"
+                oninput="this.setCustomValidity('')">
+                </textarea>
+            </div>
+
+            <div class="review-field">
+                <label class="review-label">Skapad</label>
+                <input type="date" th:field="*{createdDate}" required
+                oninvalid="this.setCustomValidity('Välj ett korrekt datum')"
+                oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="review-actions">
+                <button type="submit" class="review-btn review-primary">Spara</button>
+                <a href="/reviews" class="review-btn review-edit">Avbryt</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
