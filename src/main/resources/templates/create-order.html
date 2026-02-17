@@ -20,7 +20,12 @@
 
     <p>
         <label> Order status: </label>
-        <input type="text" th:field="*{orderStatus}">
+        <select th:field="*{orderStatus}">
+            <option value="Skapad">Skapad</option>
+            <option value="Bekräftad">Bekräftad</option>
+            <option value="Skickad">Skickad</option>
+            <option value="Levererad">Levererad</option>
+        </select>
     </p>
 
     <P>
