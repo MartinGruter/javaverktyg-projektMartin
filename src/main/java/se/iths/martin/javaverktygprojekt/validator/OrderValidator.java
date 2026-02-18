@@ -38,6 +38,10 @@ public class OrderValidator {
     }
 
     public void validate(Order order) {
+        if (order == null) {
+            throw new OrderValidationException("Order kan inte vara tom");
+        }
+
         validateOrderNumber(order.getOrderNumber());
         validateAmount(order.getAmount());
         validateOrderDate(order.getOrderDate());
