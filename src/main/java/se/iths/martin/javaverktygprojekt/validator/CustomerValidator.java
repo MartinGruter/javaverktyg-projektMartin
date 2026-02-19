@@ -14,7 +14,7 @@ public class CustomerValidator {
     }
 
     public void validateCustomerAge(int age) {
-        if (age <= 0 || age >= 150) {
+        if (age <= 0 || age > 150) {
             throw new CustomerValidationException(
                     "Age of customer can't be below or equal to 0" +
                             " and can't be larger than 150");
