@@ -41,5 +41,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: martingruter/javaverktyg-projekt:6.0.0
+          tags: martingruter/javaverktyg-projekt:7.0.0
 
