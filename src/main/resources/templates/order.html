@@ -13,7 +13,7 @@
 </p>
 <p>
     <b>Status</b>
-    <span th:text="${order.status}"></span>
+    <span th:text="${order.orderStatus}"></span>
 </p>
 <p>
     <b>Belopp</b>
@@ -21,7 +21,7 @@
 </p>
 <p>
     <b>Beställning skapad</b>
-    <span th:text="${#dates.format(order.orderDate, 'yyyy-MM-dd HH:mm')}"></span>
+    <span th:text="${order.orderDate != null} ? ${#temporals.format(order.orderDate, 'yyyy-MM-dd HH:mm')} : ''"></span>
 </p>
 <p>
     <a th:href="@{/orders}">Tillbaka till alla ordrar</a>
