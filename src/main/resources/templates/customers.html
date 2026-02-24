@@ -14,6 +14,11 @@
         <a th:href="@{/customers/{id}(id=${customer.id})}">Visa info om kund</a>
         <span> - </span>
         <a th:href="@{/customers/{id}/edit(id=${customer.id})}">Uppdatera kund</a>
+        <form th:action="@{/customers/{id}(id=${customer.id})}" method="post" style="display: inline">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">Ta bort</button>
+
+        </form>
     </li>
 
 
