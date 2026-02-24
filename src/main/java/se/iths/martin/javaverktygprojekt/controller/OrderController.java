@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import se.iths.martin.javaverktygprojekt.model.Order;
 import se.iths.martin.javaverktygprojekt.service.OrderService;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping("/orders")
 public class OrderController {
@@ -36,8 +38,11 @@ public class OrderController {
 
     @PostMapping
     public String createOrder(@ModelAttribute Order order) {
-        orderService.createOrder(order);
+        if (order.getOrderDate() == null) {
+            order.setOrderDate(LocalDateTime.now());
+        }
 
+        orderService.createOrder(order);
         return "redirect:/orders";
     }
 
