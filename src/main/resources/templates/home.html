@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/review.css}">
+</head>
+<body>
+
+<div class="review-page">
+
+    <div class="review-header">
+        <h1>Dashboard</h1>
+    </div>
+
+    <div class="review-card">
+
+        <div class="review-actions">
+
+            <a class="review-btn review-primary"
+               th:href="@{/products}">
+                Products
+            </a>
+
+            <a class="review-btn review-primary"
+               th:href="@{/customers}">
+                Customers
+            </a>
+
+            <a class="review-btn review-primary"
+               th:href="@{/orders}">
+                Orders
+            </a>
+
+            <a class="review-btn review-primary"
+               th:href="@{/reviews}">
+                Reviews
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
