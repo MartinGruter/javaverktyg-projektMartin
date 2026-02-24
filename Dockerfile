@@ -2,7 +2,7 @@ FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-COPY target/javaverktyg-projekt-4.0.0.jar app.jar
+COPY target/javaverktyg-projekt-5.0.0.jar app.jar
 
 EXPOSE 8080
 
