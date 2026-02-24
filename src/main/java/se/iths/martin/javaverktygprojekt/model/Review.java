@@ -6,17 +6,18 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name="review")
+@Table(name = "review")
 public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "reviewer_name")
     private String reviewerName;
     private int rating;
     private String title;
     private String comment;
+    @Column(name = "created_date")
     private LocalDate createdDate;
 
     public Review() {
@@ -30,9 +31,11 @@ public class Review {
         this.comment = comment;
         this.createdDate = createdDate;
     }
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -40,30 +43,39 @@ public class Review {
     public String getReviewerName() {
         return reviewerName;
     }
+
     public void setReviewerName(String reviewerName) {
         this.reviewerName = reviewerName;
     }
+
     public int getRating() {
         return rating;
     }
+
     public void setRating(int rating) {
         this.rating = rating;
     }
+
     public String getTitle() {
         return title;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
+
     public String getComment() {
         return comment;
     }
+
     public void setComment(String comment) {
         this.comment = comment;
     }
+
     public LocalDate getCreatedDate() {
         return createdDate;
     }
+
     public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
     }
