@@ -4,5 +4,5 @@ CREATE TABLE orders
     order_number VARCHAR(50) NOT NULL,
     total_amount INTEGER     NOT NULL,
     status       VARCHAR(30) NOT NULL,
-    created_at   DATE        NOT NULL
+    created_at   TIMESTAMP   NOT NULL
 );
