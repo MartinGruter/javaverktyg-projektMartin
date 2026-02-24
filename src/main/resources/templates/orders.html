@@ -15,7 +15,7 @@
         <span th:text="${order.orderNumber}"></span> -
         <span th:text="${order.amount}"></span> -
         <span th:text="${order.orderStatus}"></span> -
-        <span th:text="${#dates.format(order.orderDate, 'yyyy-MM-dd HH:mm')}"></span>
+        <span th:text="${#temporals.format(order.orderDate, 'yyyy-MM-dd HH:mm')}"></span>
 
         <a th:href="@{/orders/{id}(id=${order.id})}">Visa order</a>
         <br>
