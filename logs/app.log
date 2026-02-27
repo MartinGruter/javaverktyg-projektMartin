@@ -1,0 +1,4 @@
+2026-02-27 15:30:44 INFO  se.iths.martin.javaverktygprojekt.JavaverktygProjektApplication - Starting JavaverktygProjektApplication using Java 24.0.1 with PID 14794 (/Users/martingruter/java-projects/javaverktyg-projektMartin/target/classes started by martingruter in /Users/martingruter/java-projects/javaverktyg-projektMartin)
+2026-02-27 15:30:44 INFO  se.iths.martin.javaverktygprojekt.JavaverktygProjektApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-27 15:30:47 INFO  se.iths.martin.javaverktygprojekt.JavaverktygProjektApplication - Started JavaverktygProjektApplication in 3.407 seconds (process running for 4.041)
+2026-02-27 15:31:02 INFO  se.iths.martin.javaverktygprojekt.validator.CustomerValidator - Customer validation succeeded.
